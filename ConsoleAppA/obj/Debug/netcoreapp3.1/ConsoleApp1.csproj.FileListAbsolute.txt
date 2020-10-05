@@ -1,0 +1,17 @@
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.exe
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.deps.json
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.json
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.dev.json
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.dll
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp3.1\ConsoleApp1.pdb
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csprojAssemblyReference.cache
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfoInputs.cache
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfo.cs
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.genruntimeconfig.cache
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp3.1\WebDriver.Support.dll
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp3.1\WebDriver.dll
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.CopyComplete
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.CoreCompileInputs.cache

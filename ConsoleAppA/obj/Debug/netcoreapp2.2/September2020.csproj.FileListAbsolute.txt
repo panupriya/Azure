@@ -1,0 +1,17 @@
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp2.2\NUnit3.TestAdapter.dll
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp2.2\NUnit3.TestAdapter.pdb
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp2.2\nunit.engine.dll
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp2.2\nunit.engine.api.dll
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp2.2\nunit.engine.core.dll
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp2.2\September2020.deps.json
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp2.2\September2020.runtimeconfig.json
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp2.2\September2020.runtimeconfig.dev.json
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp2.2\September2020.dll
+D:\sep2020\ConsoleApp1\bin\Debug\netcoreapp2.2\September2020.pdb
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp2.2\September2020.AssemblyInfoInputs.cache
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp2.2\September2020.AssemblyInfo.cs
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp2.2\September2020.csproj.CoreCompileInputs.cache
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp2.2\September2020.dll
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp2.2\September2020.pdb
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp2.2\September2020.genruntimeconfig.cache
+D:\sep2020\ConsoleApp1\obj\Debug\netcoreapp2.2\September2020.csprojAssemblyReference.cache
