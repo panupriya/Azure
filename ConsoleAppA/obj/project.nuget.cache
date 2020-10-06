@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2wIUmm+Da/DZ5xcBI7K74ZGn8VAJZ29fHBOjPs7ECOZzzyeDbhv0Y7bfe/9vcGR/aWEYmZhNZjsZQjd3UquPaA==",
+  "dgSpecHash": "kGwZlzfaBFKAqnFt6teyEKYQNKMKtOMKvAUqcNikgMbAysEZDaV3WYpXuql3PdxANpZ+xf/xaxwyDWEq4MHLHg==",
   "success": true,
-  "projectFilePath": "D:\\sep2020\\ConsoleApp1\\September2020.csproj",
+  "projectFilePath": "D:\\ic test\\Azure\\ConsoleAppA\\September2020.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sandy\\.nuget\\packages\\bodi\\1.4.1\\bodi.1.4.1.nupkg.sha512",
     "C:\\Users\\sandy\\.nuget\\packages\\cucumber.messages\\6.0.1\\cucumber.messages.6.0.1.nupkg.sha512",

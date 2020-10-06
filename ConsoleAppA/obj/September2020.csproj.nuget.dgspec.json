@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\sep2020\\ConsoleApp1\\September2020.csproj": {}
+    "D:\\ic test\\Azure\\ConsoleAppA\\September2020.csproj": {}
   },
   "projects": {
-    "D:\\sep2020\\ConsoleApp1\\September2020.csproj": {
+    "D:\\ic test\\Azure\\ConsoleAppA\\September2020.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\sep2020\\ConsoleApp1\\September2020.csproj",
+        "projectUniqueName": "D:\\ic test\\Azure\\ConsoleAppA\\September2020.csproj",
         "projectName": "September2020",
-        "projectPath": "D:\\sep2020\\ConsoleApp1\\September2020.csproj",
+        "projectPath": "D:\\ic test\\Azure\\ConsoleAppA\\September2020.csproj",
         "packagesPath": "C:\\Users\\sandy\\.nuget\\packages\\",
-        "outputPath": "D:\\sep2020\\ConsoleApp1\\obj\\",
+        "outputPath": "D:\\ic test\\Azure\\ConsoleAppA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sandy\\AppData\\Roaming\\NuGet\\NuGet.Config",

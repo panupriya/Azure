@@ -171,26 +171,32 @@ namespace September2020.pages
             //save company
             IWebElement saveCompanynew = driver.FindElement(By.XPath("//*[@id='SaveButton']"));
                 saveCompanynew.Click();
-                Thread.Sleep(5000);
+                Thread.Sleep(8000);
 
-                try
-                {
-                    //goto last page
-                    wait.WaitForElement(driver, "Xpath", "//*[@id=''companiesGrid']/div[4]/a[4]", 400);
-                    IWebElement saveCompanyEndpage = driver.FindElement(By.XPath("//*[@id=''companiesGrid']/div[4]/a[4]"));
-                    saveCompanyEndpage.Click();
+            try
+            {
+                Thread.Sleep(20000);
+                //goto last page
+                wait.WaitForElement(driver, "Xpath", "//*[@id=''companiesGrid']/div[4]/a[4]/span", 10000);
+                IWebElement saveCompanyEndpage = driver.FindElement(By.XPath("//*[@id=''companiesGrid']/div[4]/a[4]/span"));
+                saveCompanyEndpage.Click();
 
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine("goto last page to last page successfull", ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("goto last page to last page successfull", ex.Message);
 
+            }
+            try
+            {
                 // validating if data stored successfully by checking last page last element
                 wait.WaitForElement(driver, "Xpath", "//*[@id='companiesGrid']/div[3]/table/tbody/tr[last()]/td[1]", 400);
+            }
+            catch (Exception ex)
+            {
                 IWebElement companyLastpageLastelement = driver.FindElement(By.XPath("//*[@id='companiesGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
                 Assert.That(companyLastpageLastelement.Text, Is.EqualTo("ABC LTD"));
-
+            }
 
         }
         public void EditCompany(IWebDriver driver)
