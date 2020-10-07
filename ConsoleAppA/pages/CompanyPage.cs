@@ -196,6 +196,7 @@ namespace September2020.pages
             {
                 IWebElement companyLastpageLastelement = driver.FindElement(By.XPath("//*[@id='companiesGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
                 Assert.That(companyLastpageLastelement.Text, Is.EqualTo("ABC LTD"));
+                Console.WriteLine("company creation successfull", ex.Message);
             }
 
         }
