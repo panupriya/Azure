@@ -4,6 +4,9 @@
     <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Step Definition\CompanyStepDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Step Definition\TMStepDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
