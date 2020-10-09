@@ -3,6 +3,7 @@
 	Background: Navigate to company page 
 	 Given I navigate to company page
 
+ 
 	 #create, edit and delete company in one page
  Scenario: Verify company page created edited and deleted successfully
  When I create new company using company name 

@@ -16,7 +16,7 @@ namespace September2020.Step_Definition
         [BeforeScenario]
         public void LoginToTurnup()
         {
-           
+
             driver = new ChromeDriver();
             //obj init and define for loginpage
             LoginPage loginObject = new LoginPage();

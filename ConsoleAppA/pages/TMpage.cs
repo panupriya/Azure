@@ -14,13 +14,12 @@ namespace September2020.pages
         /// This will return random code Example: code123
         /// </summary>
         /// <returns></returns>
-     
+
         public string CreateRandomCode()
         {
             var r = new Random();
-            return "code" + r.Next(1, 999);           
+            return "code" + r.Next(1, 999);
         }
-        
         public void CreateTM(IWebDriver driver)
         {
             //click createnew time and material
@@ -100,87 +99,7 @@ namespace September2020.pages
 
         
 
-        //Creating multiple TM
-        internal void CreateTMWithValues(IWebDriver driver, string codeName, string desc)
-        {
-            
-            //click createnew time and material
-            IWebElement createnew = driver.FindElement(By.XPath("//*[@id='container']/p/a"));
-            createnew.Click();
-
-            wait.WaitForElement(driver, "XPath", "//*[@id='TimeMaterialEditForm']/div/div[1]/div/span[1]/span", 5);
-
-            //click typecode dropdown list
-            IWebElement time = driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[1]/div/span[1]/span"));
-            time.Click();
-
-            wait.WaitForElement(driver, "XPath", "//*[@id='TypeCode_listbox']/li[2]", 5);
-
-            // select time
-            IWebElement typecode = driver.FindElement(By.XPath("//*[@id='TypeCode_listbox']/li[2]"));
-            typecode.Click();
-
-            wait.WaitForElement(driver, "Id", "Code", 5);
-
-            //input code
-            IWebElement code = driver.FindElement(By.Id("Code"));
-            // code from feature file
-            code.SendKeys(codeName);
-
-            //input discription
-            IWebElement discription = driver.FindElement(By.Id("Description"));
-            //get from feature file
-            discription.SendKeys(desc);
-
-            //price is overriding so call the first input then call price input
-            IWebElement price = driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[4]/div/span[1]/span/input[1]"));
-            price.Click();
-
-            IWebElement pricePerUnit = driver.FindElement(By.Id("Price"));
-            pricePerUnit.SendKeys("5000");
-
-            wait.WaitForElementVisibility(driver, "XPath", "//*[@id='SaveButton']", 400);
-
-            // select file
-
-            // save data
-            IWebElement savebutton = driver.FindElement(By.XPath("//*[@id='SaveButton']"));
-            savebutton.Click();
-
-           
-        }
-
-     
-
-
-        //verify multiple TM creation
-        internal bool IsRecordCreated(IWebDriver driver, string code)
-        {
-            Thread.Sleep(5000);
-            try
-            {
-                //goto last page
-                IWebElement lastpage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
-                lastpage.Click();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("last page cannot be loaded", ex.Message);
-            }
-            wait.WaitForElement(driver, "XPath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]", 400);
-
-            //last test element selection
-            IWebElement expectedcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-            if (expectedcode.Text == code)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-
-            }
-        }
+       
 
         //EditTM
         public void EditTM(IWebDriver driver)
@@ -261,6 +180,134 @@ namespace September2020.pages
 
         }
 
+        
+
+        //deleteTM
+        public void DeleteTM(IWebDriver driver)
+        {
+            wait.WaitForElement(driver, "XPath", "//*[@id='tmsGrid']/div[4]/a[4]", 20);
+            //goto laste page
+            IWebElement lastpage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
+            lastpage.Click();
+
+            wait.WaitForElement(driver, "XPath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]", 20);
+            // data to delete  
+            IWebElement deleteDataCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            deleteDataCode.Click();
+
+            wait.WaitForElement(driver, "XPath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[2]", 10);
+
+            //delete button click
+            IWebElement delete = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));
+            delete.Click();
+            Thread.Sleep(2000);
+
+
+            //driver.SwitchTo().Alert().Accept();
+
+            IAlert alert = driver.SwitchTo().Alert();
+            Thread.Sleep(1000);
+
+            // Accepting alert		
+            alert.Accept();
+            // validating deleted data
+            try
+            {
+                IWebElement deleteText = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+                Assert.That(deleteText.Text != "Sep 2020");
+                Console.WriteLine("tm details deleted");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("delete method failed");
+                Assert.Fail("deleteText failed", ex.Message);
+
+            }
+
+        }
+
+
+        //Creating multiple TM
+        internal void CreateTMWithValues(IWebDriver driver, string codeName, string desc)
+        {
+
+            //click createnew time and material
+            IWebElement createnew = driver.FindElement(By.XPath("//*[@id='container']/p/a"));
+            createnew.Click();
+
+            wait.WaitForElement(driver, "XPath", "//*[@id='TimeMaterialEditForm']/div/div[1]/div/span[1]/span", 5);
+
+            //click typecode dropdown list
+            IWebElement time = driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[1]/div/span[1]/span"));
+            time.Click();
+
+            wait.WaitForElement(driver, "XPath", "//*[@id='TypeCode_listbox']/li[2]", 5);
+
+            // select time
+            IWebElement typecode = driver.FindElement(By.XPath("//*[@id='TypeCode_listbox']/li[2]"));
+            typecode.Click();
+
+            wait.WaitForElement(driver, "Id", "Code", 5);
+
+            //input code
+            IWebElement code = driver.FindElement(By.Id("Code"));
+            // code from feature file
+            code.SendKeys(codeName);
+
+            //input discription
+            IWebElement discription = driver.FindElement(By.Id("Description"));
+            //get from feature file
+            discription.SendKeys(desc);
+
+            //price is overriding so call the first input then call price input
+            IWebElement price = driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[4]/div/span[1]/span/input[1]"));
+            price.Click();
+
+            IWebElement pricePerUnit = driver.FindElement(By.Id("Price"));
+            pricePerUnit.SendKeys("5000");
+
+            wait.WaitForElementVisibility(driver, "XPath", "//*[@id='SaveButton']", 400);
+
+            // select file
+
+            // save data
+            IWebElement savebutton = driver.FindElement(By.XPath("//*[@id='SaveButton']"));
+            savebutton.Click();
+
+
+        }
+
+
+
+
+        //verify multiple TM creation
+        internal bool IsRecordCreated(IWebDriver driver, string code)
+        {
+            Thread.Sleep(5000);
+            try
+            {
+                //goto last page
+                IWebElement lastpage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
+                lastpage.Click();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("last page cannot be loaded", ex.Message);
+            }
+            wait.WaitForElement(driver, "XPath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]", 400);
+
+            //last test element selection
+            IWebElement expectedcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            if (expectedcode.Text == code)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+
+            }
+        }
         //edit with random values
         internal static void CreateEditWithValues(IWebDriver driver, string editCode, string editDesc)
         {
@@ -323,7 +370,7 @@ namespace September2020.pages
             // save edited data
             IWebElement editSavebutton = driver.FindElement(By.XPath("//*[@id='SaveButton']"));
             editSavebutton.Click();
-        } 
+        }
 
         //verify edited with random values
         internal bool IsEditCreated(IWebDriver driver, string editCode)
@@ -340,7 +387,7 @@ namespace September2020.pages
             IWebElement editedcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
 
             //-- another method assertion
-           if (editedcode.Text == editCode)
+            if (editedcode.Text == editCode)
             {
                 return true;
             }
@@ -349,51 +396,6 @@ namespace September2020.pages
                 return false;
             }
         }
-
-        //deleteTM
-        public void DeleteTM(IWebDriver driver)
-        {
-            wait.WaitForElement(driver, "XPath", "//*[@id='tmsGrid']/div[4]/a[4]", 20);
-            //goto laste page
-            IWebElement lastpage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
-            lastpage.Click();
-
-            wait.WaitForElement(driver, "XPath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]", 20);
-            // data to delete  
-            IWebElement deleteDataCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-            deleteDataCode.Click();
-
-            wait.WaitForElement(driver, "XPath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[2]", 10);
-
-            //delete button click
-            IWebElement delete = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));
-            delete.Click();
-            Thread.Sleep(2000);
-
-
-            //driver.SwitchTo().Alert().Accept();
-
-            IAlert alert = driver.SwitchTo().Alert();
-            Thread.Sleep(1000);
-
-            // Accepting alert		
-            alert.Accept();
-            // validating deleted data
-            try
-            {
-                IWebElement deleteText = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-                Assert.That(deleteText.Text != "Sep 2020");
-                Console.WriteLine("tm details deleted");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("delete method failed");
-                Assert.Fail("deleteText failed", ex.Message);
-
-            }
-
-        }
-
         //Deleting randomly created values
         internal static void DeleteWithValues(IWebDriver driver)
         {
@@ -426,7 +428,7 @@ namespace September2020.pages
 
         //validating randomly created n then deleted data
 
-       
+
         internal bool IsRecordDeleted(IWebDriver driver, string editCode)
         {
             Thread.Sleep(5000);
